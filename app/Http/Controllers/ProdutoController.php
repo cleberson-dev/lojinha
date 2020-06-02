@@ -38,7 +38,24 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome'=>'required',
+            'preco'=>'required'
+        ]);
+
+        $nome = $request->input('nome');
+        $descricao = $request->input('descricao', 'Sem descrição');
+        $preco = $request->input('preco');
+
+        $novoProduto = new Produto([
+            'nome' => $nome,
+            'descricao' => $descricao,
+            'preco' => $preco
+        ]);
+
+        $novoProduto->save();
+
+        return redirect()->action('ProdutoController@index');
     }
 
     /**

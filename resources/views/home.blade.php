@@ -94,10 +94,18 @@
                                 <p>{{ $produto->preco }}</p>
                             </li>
                         @endforeach
+                    </ul>
                 @else
                     <p>SEM PRODUTOS!</p>
                 @endif
-                    </ul>
+                <form action="/" method="POST">
+                    @csrf
+
+                    <input type='text' id='nome' name='nome' />
+                    <input type='text' id='descricao' name='descricao' />
+                    <input type='number' id='preco' name='preco' />
+                    <button type="submit">Criar</button>
+                </form>
             </div>
         </div>
     </body>
