@@ -9,12 +9,17 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
         <a class="navbar-brand" href="#">Produtos</a>
     </nav>
     <div class="container">
+        <div class="d-flex flex-row justify-content-between align-items-center">
+            <h1>Produtos</h1>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#adicionarProdutoModal">
+                Adicionar novo produto
+            </button>   
+        </div>
     @if(sizeof($produtos) > 0)
-        <h1>Produtos</h1>
         <table class="table">
             <thead class="thead-dark">
                 <tr>
@@ -56,9 +61,6 @@
         <p>SEM PRODUTOS!</p>
     @endif
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#adicionarProdutoModal">
-        Adicionar novo produto
-    </button>
     <div class="modal fade" id="adicionarProdutoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -131,10 +133,6 @@
           </div>
         </div>
       </div>
-
-
-
-    
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
