@@ -92,6 +92,16 @@
                                 <p>{{ $produto->nome }}</p>
                                 <p>{{ $produto->descricao }}</p>
                                 <p>{{ $produto->preco }}</p>
+                                <form action="/{{$produto->id}}" method="POST">
+                                    <h2>Editar</h2>
+                                    @csrf
+                                    @method('PUT')
+                
+                                    <input type='text' id='nome' name='nome' value="{{$produto->nome}}" />
+                                    <input type='text' id='descricao' name='descricao' value="{{$produto->descricao}}" />
+                                    <input type='number' id='preco' name='preco' value="{{$produto->preco}}" />
+                                    <button type="submit">Editar</button>
+                                </form>
                             </li>
                         @endforeach
                     </ul>
@@ -99,6 +109,7 @@
                     <p>SEM PRODUTOS!</p>
                 @endif
                 <form action="/" method="POST">
+                    <h2>Criar</h2>
                     @csrf
 
                     <input type='text' id='nome' name='nome' />

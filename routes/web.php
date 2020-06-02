@@ -13,5 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'ProdutoController@index');
-ROute::post('/', 'ProdutoController@store');
+Route::get('', 'ProdutoController@index');
+Route::post('', 'ProdutoController@store');
+Route::put('{id}', 'ProdutoController@update');

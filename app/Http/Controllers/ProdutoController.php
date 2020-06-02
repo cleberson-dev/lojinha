@@ -76,8 +76,8 @@ class ProdutoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {  
+        // 
     }
 
     /**
@@ -89,7 +89,15 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $produto = Produto::find($id);
+        
+        $produto->nome = $request->input('nome', $produto->nome);
+        $produto->descricao = $request->input('descricao', $produto->descricao);
+        $produto->preco = $request->input('preco', $produto->preco);
+
+        $produto->save();
+
+        return redirect()->action('ProdutoController@index');
     }
 
     /**
