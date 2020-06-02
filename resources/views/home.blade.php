@@ -80,7 +80,7 @@
                         </div>
                         <div class="col">
                             <label for="preco">Preço</label>
-                            <input type='number' id='precoAdd' name='preco' class="form-control" />
+                            <input type='number' step="0.01" id='precoAdd' name='preco' class="form-control" />
                         </div>
                     </div>
                     <div class="form-group">
@@ -117,7 +117,7 @@
                         </div>
                         <div class="col">
                             <label for="preco">Preço</label>
-                            <input type='number' id='precoEditar' name='preco' class="form-control" />
+                            <input type='number' step="0.01" id='precoEditar' name='preco' class="form-control" />
                         </div>
                     </div>
                     <div class="form-group">
