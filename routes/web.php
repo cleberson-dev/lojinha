@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('', 'ProdutoController@index');
 Route::post('', 'ProdutoController@store');
 Route::put('{id}', 'ProdutoController@update');
+Route::delete('{id}', 'ProdutoController@destroy');

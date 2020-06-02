@@ -92,6 +92,7 @@
                                 <p>{{ $produto->nome }}</p>
                                 <p>{{ $produto->descricao }}</p>
                                 <p>{{ $produto->preco }}</p>
+                                
                                 <form action="/{{$produto->id}}" method="POST">
                                     <h2>Editar</h2>
                                     @csrf
@@ -101,6 +102,9 @@
                                     <input type='text' id='descricao' name='descricao' value="{{$produto->descricao}}" />
                                     <input type='number' id='preco' name='preco' value="{{$produto->preco}}" />
                                     <button type="submit">Editar</button>
+
+                                    @method('DELETE')
+                                    <button type="submit" class="deleteBtn">X</button>
                                 </form>
                             </li>
                         @endforeach
