@@ -9,12 +9,31 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
-        <a class="navbar-brand" href="#">Produtos</a>
-    </nav>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+            <a class="navbar-brand" href="#" >Produtos</a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a aria-label="Github" rel="noopener" target="_blank" class="nav-link" href="https://github.com/cleberson-dev">
+                        Github
+                    </a>
+                </li>
+                <li aria-label="Twitter" rel="noopener" target="_blank" class="nav-item">
+                    <a aria-label="LinkedIn" rel="noopener" target="_blank" class="nav-link" href="https://twitter.com/jrcleb">
+                        Twitter
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a aria-label="LinkedIn" rel="noopener" target="_blank" class="nav-link" href="https://linkedin.com/in/clebersondev">
+                        LinkedIn
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
     <div class="container">
         <div class="d-flex flex-row justify-content-between align-items-center">
-            <h1>Produtos</h1>
+            <h2>Produtos</h2>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#adicionarProdutoModal">
                 Adicionar novo produto
             </button>   
