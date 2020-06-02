@@ -1,127 +1,52 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <title>Produtos</title>
+</head>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+<body>
+    @if(sizeof($produtos) > 0)
+        <ul>
+            <h1>Produtos</h1>
+            @foreach($produtos as $produto)
+                <li>
+                    <p>{{ $produto->id }}</p>
+                    <p>{{ $produto->nome }}</p>
+                    <p>{{ $produto->descricao }}</p>
+                    <p>{{ $produto->preco }}</p>
 
-            .full-height {
-                height: 100vh;
-            }
+                    <form action="/{{ $produto->id }}" method="POST">
+                        <h2>Editar</h2>
+                        @csrf
+                        @method('PUT')
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+                        <input type='text' id='nome' name='nome' value="{{ $produto->nome }}" />
+                        <input type='text' id='descricao' name='descricao' value="{{ $produto->descricao }}" />
+                        <input type='number' id='preco' name='preco' value="{{ $produto->preco }}" />
+                        <button type="submit">Editar</button>
 
-            .position-ref {
-                position: relative;
-            }
+                        @method('DELETE')
+                        <button type="submit" class="deleteBtn">X</button>
+                    </form>
+                </li>
+            @endforeach
+        </ul>
+    @else
+        <p>SEM PRODUTOS!</p>
+    @endif
+    <form action="/" method="POST">
+        <h2>Criar</h2>
+        @csrf
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+        <input type='text' id='nome' name='nome' />
+        <input type='text' id='descricao' name='descricao' />
+        <input type='number' id='preco' name='preco' />
+        <button type="submit">Criar</button>
+    </form>
+</body>
 
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Olá!!!
-                </div>
-                @if (sizeof($produtos) > 0)
-                    <ul>
-                        <h1>Produtos</h1>
-                        @foreach ($produtos as $produto)
-                            <li>
-                                <p>{{ $produto->id }}</p>
-                                <p>{{ $produto->nome }}</p>
-                                <p>{{ $produto->descricao }}</p>
-                                <p>{{ $produto->preco }}</p>
-                                
-                                <form action="/{{$produto->id}}" method="POST">
-                                    <h2>Editar</h2>
-                                    @csrf
-                                    @method('PUT')
-                
-                                    <input type='text' id='nome' name='nome' value="{{$produto->nome}}" />
-                                    <input type='text' id='descricao' name='descricao' value="{{$produto->descricao}}" />
-                                    <input type='number' id='preco' name='preco' value="{{$produto->preco}}" />
-                                    <button type="submit">Editar</button>
-
-                                    @method('DELETE')
-                                    <button type="submit" class="deleteBtn">X</button>
-                                </form>
-                            </li>
-                        @endforeach
-                    </ul>
-                @else
-                    <p>SEM PRODUTOS!</p>
-                @endif
-                <form action="/" method="POST">
-                    <h2>Criar</h2>
-                    @csrf
-
-                    <input type='text' id='nome' name='nome' />
-                    <input type='text' id='descricao' name='descricao' />
-                    <input type='number' id='preco' name='preco' />
-                    <button type="submit">Criar</button>
-                </form>
-            </div>
-        </div>
-    </body>
 </html>
