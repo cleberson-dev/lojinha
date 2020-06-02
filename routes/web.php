@@ -13,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome', ['title' => 'Olá, mundo 🌎']);
+Route::get('/', 'ProdutoController@index');
